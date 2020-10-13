@@ -5,7 +5,6 @@
 #include "g4root.hh"
 #include "G4MPIhistoMerger.hh"
 #include "MyRun.hh"
-#include <stdio.h>
 
 RunAction::RunAction()
         : G4UserRunAction(), thefilename("test"), runM(NULL)
