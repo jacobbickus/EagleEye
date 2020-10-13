@@ -79,7 +79,7 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
                                 if(opProc) {
                                         theStatus = opProc->GetStatus();
                                         if (theStatus == Detection) {
-                                                det_energy = theParticle->GetKineticEnergy()/(eV);
+                                                det_energy = theParticle->GetKineticEnergy()/(MeV);
                                                 manager->FillDetected(det_energy, weight);
                                         }
                                 } // for if opProc
