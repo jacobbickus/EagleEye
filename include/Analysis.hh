@@ -25,7 +25,7 @@ static Analysis* GetAnalysis();
 
 void Book();
 void EndOfRun();
-void Save(const G4String&);
+void Save(const G4String& fname);
 void Close(G4bool reset = true);
 void Update();
 void Clear();
@@ -37,7 +37,7 @@ private:
   DISALLOW_COPY_AND_ASSIGN(Analysis);
   G4int fIncDetector_hist, fDetected_hist;
   G4double xmax;
-  std::ostringstream finalname;
+  G4String filename;
   #if defined (G4ANALYSIS_USE_ROOT)
   TH1D *hBrems;
   #endif
