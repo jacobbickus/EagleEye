@@ -33,7 +33,7 @@ void RunAction::EndOfRunAction(const G4Run*)
   const G4int rank = G4MPImanager::GetManager()->GetRank();
   if(rank == 0)
   {
-    G4String fname("test-rank0");
+    G4String fname("data-rank0");
     Analysis* myana = Analysis::GetAnalysis();
     myana->Save(fname);
     myana->Close(false);
@@ -43,14 +43,9 @@ void RunAction::EndOfRunAction(const G4Run*)
   hm.Merge();
   if(rank == 0)
   {
-    std::ostringstream fname;
-    fname<<"test-rank" << rank;
-    if(rank == 0)
-    {
-      fname.str("test-merged");
-    }
+    finalname.str(filename);
     Analysis* myana = Analysis::GetAnalysis();
-    myana->Save(fname.str());
+    myana->Save(finalname.str());
   }
   Analysis* myana = Analysis::GetAnalysis();
   myana->Close();
