@@ -7,7 +7,7 @@
 #include "MyRun.hh"
 
 RunAction::RunAction()
-        : G4UserRunAction(), filename("test"), runM(NULL)
+        : G4UserRunAction(), thefilename("test"), runM(NULL)
 {
   runM = new RunMessenger(this);
 }
