@@ -22,11 +22,11 @@ class RunAction : public G4UserRunAction
     virtual void EndOfRunAction(const G4Run*);
     void SetFilename(G4String val)
     {
-      filename = val;
+      thefilename = val;
       std::cout << "Filename set to: " << filename << std::endl;
     }
   private:
-    G4String filename; 
+    G4String thefilename; 
     RunMessenger* runM;
 };
 
