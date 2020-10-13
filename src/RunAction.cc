@@ -35,7 +35,8 @@ void RunAction::EndOfRunAction(const G4Run*)
   const G4int rank = G4MPImanager::GetManager()->GetRank();
   if(rank == 0)
   {
-    G4String fname("data-rank0");
+    G4String rankFilename = thefilename + "-temp";
+    G4String fname(rankFilename);
     Analysis* myana = Analysis::GetAnalysis();
     myana->Save(fname);
     myana->Close(false);
