@@ -46,7 +46,7 @@ void RunAction::EndOfRunAction(const G4Run*)
   if(rank == 0)
   {
     std::ostringstream fname;
-    filename<<"-merged";
+    thefilename<<"-merged";
     fname.str(thefilename);
     Analysis* myana = Analysis::GetAnalysis();
     myana->Save(fname.str());
