@@ -43,7 +43,7 @@ void Analysis::Book()
     manager->SetVerboseLevel(0);
     G4int nbins = 10000;
     fIncDetector_hist = manager->CreateH1("IncDet", "Incident Detector Data", nbins, 0., xmax/2, "MeV");
-    fDetected_hist = manager->CreateH1("Detected", "Detected Data", nbins, 0., 1E-3, "MeV");
+    fDetected_hist = manager->CreateH1("Detected", "Detected Data", nbins, 0., 1E-5, "MeV");
 }
 
 void Analysis::Update()
