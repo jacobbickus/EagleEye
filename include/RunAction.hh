@@ -10,7 +10,7 @@
 #include "G4UnitsTable.hh"
 #include "RunMessenger.hh"
 
-class RunMessenger
+class RunMessenger;
 
 class RunAction : public G4UserRunAction
 {
@@ -23,7 +23,7 @@ class RunAction : public G4UserRunAction
     void SetFilename(G4String val)
     {
       thefilename = val;
-      std::cout << "Filename set to: " << filename << std::endl;
+      std::cout << "Filename set to: " << thefilename << std::endl;
     }
   private:
     G4String thefilename; 
