@@ -46,15 +46,9 @@ int main(int argc,char **argv)
 
   G4int stop_time = time(0);
   G4cout << "The MC took:\t\t" << stop_time - start_time << "s" <<G4endl;
-
-  //delete LoggedSession;
+  
   delete g4MPI;
   delete runManager;
-  
-  if(remove("data-rank0.root") !=0)
-     std::cerr << "ERROR: Potential Error with Data Transfer!" << std::endl;
-  else
-     std::cout << "Data Transferred Successfully" << std::endl;
 
   return 0;
 }
