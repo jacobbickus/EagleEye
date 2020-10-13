@@ -49,6 +49,11 @@ int main(int argc,char **argv)
   //delete LoggedSession;
   delete g4MPI;
   delete runManager;
+  
+  if(remove("data-rank0.root") !=0)
+     std::cerr << "ERROR: Potential Error with Data Transfer!" << std::endl;
+  else
+     std::cout << "Data Transferred Successfully" << std::endl;
 
   return 0;
 }
