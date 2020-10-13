@@ -7,12 +7,14 @@
 #include "MyRun.hh"
 
 RunAction::RunAction()
-        : G4UserRunAction()
+        : G4UserRunAction(), runM(nullptr)
 {
+  RunMessenger* runM = new RunMessenger(this);
 }
 
 RunAction::~RunAction()
 {
+  delete runM;
 }
 
 G4Run* RunAction::GenerateRun()
