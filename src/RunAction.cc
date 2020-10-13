@@ -55,10 +55,5 @@ void RunAction::EndOfRunAction(const G4Run*)
   }
   Analysis* myana = Analysis::GetAnalysis();
   myana->Close();
-        
-  if(remove("data-rank0.root") !=0)
-     std::cerr << "ERROR: Potential Error with Data Transfer!" << std::endl;
-  else
-      std::cout << "Data Transferred Successfully" << std::endl;
 
 }
