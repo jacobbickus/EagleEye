@@ -58,5 +58,5 @@ EagleEye Requires two inputs:
 Output
 ==
 
-The Code will generate two files. The file with the final-merged histograms is found in filename-merged.root. where filename is set in eagle.in.
+The Code will generate two files. The file with the final-merged histograms is found in filename-merged.root. where filename is set in eagle.in. EagleEye does not permit visualizations. In order to visualize Changes made via eagle.in simply apply the same changes in mantis.in and run ./mantis -m vis_save.mac to create a .wrl file or in interactive mode ./mantis to use OPENGL. 
 
