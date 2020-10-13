@@ -8,6 +8,9 @@
 #include "g4root.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
+#include "RunMessenger.hh"
+
+class RunMessenger
 
 class RunAction : public G4UserRunAction
 {
@@ -17,6 +20,14 @@ class RunAction : public G4UserRunAction
     virtual G4Run* GenerateRun();
     virtual void BeginOfRunAction(const G4Run*);
     virtual void EndOfRunAction(const G4Run*);
+    void SetFilename(G4String val)
+    {
+      filename = val;
+      std::cout << "Filename set to: " << filename << std::endl;
+    }
+  private:
+    G4String filename; 
+    RunMessenger* runM;
 };
 
 
