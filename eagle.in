@@ -31,6 +31,4 @@
 #/mydet/nPMT 4
 # Caution the tank should not be set larger than world (5x5x10 meters)
 /run/initialize
-# For MPI applications the master seed is set here 
-/mpi/setMasterSeed 1 
 /mpi/beamOn 10
