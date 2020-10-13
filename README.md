@@ -1,4 +1,4 @@
-# mantis with mpi
+# EagleEye -- Mantis with a MPI Twist
 
 In order to use mpi the user must complete the following
 
