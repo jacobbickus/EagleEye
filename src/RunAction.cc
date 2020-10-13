@@ -43,9 +43,10 @@ void RunAction::EndOfRunAction(const G4Run*)
   hm.Merge();
   if(rank == 0)
   {
-    finalname.str(filename);
+    std::ostringstream fname;
+    fname.str(filename);
     Analysis* myana = Analysis::GetAnalysis();
-    myana->Save(finalname.str());
+    myana->Save(fname.str());
   }
   Analysis* myana = Analysis::GetAnalysis();
   myana->Close();
