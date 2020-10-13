@@ -7,9 +7,9 @@
 #include "MyRun.hh"
 
 RunAction::RunAction()
-        : G4UserRunAction(), runM(nullptr)
+        : G4UserRunAction(), runM(NULL)
 {
-  RunMessenger* runM = new RunMessenger(this);
+  runM = new RunMessenger(this);
 }
 
 RunAction::~RunAction()
