@@ -13,6 +13,7 @@
 #include "Randomize.hh"
 #include <iostream>
 #include "G4Types.hh"
+#include <stdio.h>
 
 // declare global variables
 G4long seed;
