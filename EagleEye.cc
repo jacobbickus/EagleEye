@@ -15,7 +15,6 @@
 #include "G4Types.hh"
 #include <stdio.h>
 #include <string>
-#include "G4Threading.hh"
 
 G4int seed;
 G4int numCores;
@@ -48,7 +47,6 @@ int main(int argc,char **argv)
  macro = argv[1];
  seed = atoi(argv[2]);
  numCores = atoi(argv[3]);
- std::cout << "Number of Cores: " << G4Threading::G4GetNumberOfCores() << std::endl;
   
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   
@@ -58,7 +56,6 @@ int main(int argc,char **argv)
   {
     G4String thecommand = "/mpi/setSeed " + std::to_string(i) + " " + std::to_string(seed +i);
     UI->ApplyCommand(thecommand);
-    std::cout << thecommand << std::endl;
   }
 
   G4MPIsession* session = g4MPI->GetMPIsession();
