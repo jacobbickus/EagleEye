@@ -44,7 +44,7 @@ void Analysis::Book()
     G4int nbins = 1000000; // currently set to 1E6 bins 
     fIncDetector_hist = manager->CreateH1("IncDet", "Incident Detector Data", nbins, 0., xmax, "MeV");
     fDetected_hist = manager->CreateH1("Detected", "Detected Data", nbins, 0., 1E-5, "MeV");
-    fIncWater_hist = manager->CreateH1("IncWater", "NRF Incident Detector Data", nbins, 0., xmax, "MeV");
+    fIncWater_hist = manager->CreateH1("IncWater", "NRF Incident Water Tank Data", nbins, 0., xmax, "MeV");
 }
 
 void Analysis::Update()
