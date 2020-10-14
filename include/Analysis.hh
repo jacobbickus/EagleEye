@@ -31,11 +31,12 @@ void Update();
 void Clear();
 void FillIncDet(G4double, G4double);
 void FillDetected(G4double, G4double);
+void FillIncWater(G4double, G4double);
 
 private:
   Analysis();
   DISALLOW_COPY_AND_ASSIGN(Analysis);
-  G4int fIncDetector_hist, fDetected_hist;
+  G4int fIncDetector_hist, fDetected_hist, fIncWater_hist;
   G4double xmax;
   G4String filename;
   #if defined (G4ANALYSIS_USE_ROOT)
