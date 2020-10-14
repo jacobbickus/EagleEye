@@ -30,7 +30,7 @@ int main(int argc,char **argv)
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   g4MPI->SetVerbose(0);
   G4UImanager* UI= G4UImanager::GetUIpointer();
-  for(G4int i=0;i<=numCores;i++)
+  for(G4int i=0;i<=numCores - 1;i++)
   {
     G4String thecommand = "/mpi/setSeed " + to_string(i) + " " + to_string(seed +i);
     UI->ApplyCommand(thecommand);
