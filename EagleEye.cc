@@ -24,7 +24,7 @@ namespace
 void PrintUsage()
 {
    std::cerr << "Usage: " << std::endl;
-   std::cerr << "EagleEye [-m macro] [-s MasterSeed] [-n numberCores]" << std::endl;
+   std::cerr << "EagleEye [macro] [MasterSeed] [numberCores]" << std::endl;
 }
 }
 
@@ -37,22 +37,15 @@ int main(int argc,char **argv)
   G4bool force_isotropic = false;
   G4bool addNRF = true;
   // Evaluate Arguments
-  if ( argc > 7 )
+  if ( argc != 4 )
   {
           PrintUsage();
           return 1;
   }
 
-  for (G4int i=1; i<argc; i=i+2) {
-          if (G4String(argv[i]) == "-m") macro = argv[i+1];
-          else if (G4String(argv[i]) == "-s") seed = atoi(argv[i+1]);
-          else if (G4String(argv[i]) == "-n") numCores = atoi(argv[i+1]);
-          else
-          {
-                  PrintUsage();
-                  return 1;
-          }
-  }
+ macro = argv[1];
+ seed = atoi(argv[2]);
+ numCores = atoi(argv[3]);
   
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   
