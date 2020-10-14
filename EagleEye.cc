@@ -16,7 +16,7 @@
 #include <stdio.h>
 
 // declare global variables
-G4long seed;
+//G4long seed;
 
 int main(int argc,char **argv)
 {
@@ -26,14 +26,14 @@ int main(int argc,char **argv)
   G4bool use_xsec_integration = true;
   G4bool force_isotropic = false;
   G4bool addNRF = true;
-  seed = 1;
+  //seed = 1;
 
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   g4MPI->SetVerbose(0);
   G4MPIsession* session = g4MPI->GetMPIsession();
         // choose the Random engine
-  CLHEP::HepRandom::setTheEngine(new CLHEP::RanluxEngine);
-  CLHEP::HepRandom::setTheSeed(seed);
+  //CLHEP::HepRandom::setTheEngine(new CLHEP::RanluxEngine);
+  //CLHEP::HepRandom::setTheSeed(seed);
 
   G4RunManager *runManager = new G4RunManager;
   runManager->SetUserInitialization(new DetectorConstruction);
