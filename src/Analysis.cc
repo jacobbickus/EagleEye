@@ -14,7 +14,7 @@ Analysis* Analysis::GetAnalysis()
   }
   return the_analysis;
 }
-Analysis::Analysis(): fIncDetector_hist(0), fDetected_hist(0)
+Analysis::Analysis(): fIncDetector_hist(0), fDetected_hist(0), fIncWater_hist(0)
 {}
 
 Analysis::~Analysis()
@@ -41,9 +41,10 @@ void Analysis::Book()
         xmax = 5; // this is really just a placeholder
     #endif
     manager->SetVerboseLevel(0);
-    G4int nbins = 10000;
-    fIncDetector_hist = manager->CreateH1("IncDet", "Incident Detector Data", nbins, 0., xmax/2, "MeV");
+    G4int nbins = 1000000; // currently set to 1E6 bins 
+    fIncDetector_hist = manager->CreateH1("IncDet", "Incident Detector Data", nbins, 0., xmax, "MeV");
     fDetected_hist = manager->CreateH1("Detected", "Detected Data", nbins, 0., 1E-5, "MeV");
+    fIncWater_hist = manager->CreateH1("IncWater", "NRF Incident Detector Data", nbins, 0., xmax, "MeV");
 }
 
 void Analysis::Update()
@@ -73,12 +74,18 @@ void Analysis::Close(G4bool reset)
 
 void Analysis::FillIncDet(G4double E_incident, G4double weight)
 {
-  G4AnalysisManager*mgr = G4AnalysisManager::Instance();
+  G4AnalysisManager* mgr = G4AnalysisManager::Instance();
   mgr->FillH1(fIncDetector_hist, E_incident, weight);
 }
 
 void Analysis::FillDetected(G4double Energy, G4double weight)
 {
-  G4AnalysisManager*mgr = G4AnalysisManager::Instance();
+  G4AnalysisManager* mgr = G4AnalysisManager::Instance();
   mgr->FillH1(fDetected_hist, Energy, weight);
+}
+
+void Analysis::FillIncWater(G4double E_incident, G4double weight)
+{
+  G4AnalysisManager* mgr = G4AnalysisManager::Instance();
+  mgr->FillH1(fIncWater_hist, E_incident, weight);
 }
