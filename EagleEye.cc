@@ -31,6 +31,11 @@ int main(int argc,char **argv)
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   g4MPI->SetVerbose(0);
   G4MPIsession* session = g4MPI->GetMPIsession();
+  G4String prompt= " [40;01;33m";
+  prompt+= "G4MPI";
+  prompt+= " [40;31m(%s) [40;36m[%/] [00;30m:";
+  session-> SetPrompt(prompt);
+
         // choose the Random engine
   //CLHEP::HepRandom::setTheEngine(new CLHEP::RanluxEngine);
   //CLHEP::HepRandom::setTheSeed(seed);
