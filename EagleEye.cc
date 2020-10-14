@@ -14,9 +14,7 @@
 #include <iostream>
 #include "G4Types.hh"
 #include <stdio.h>
-
-// declare global variables
-//G4long seed;
+#include <string>
 
 int main(int argc,char **argv)
 {
@@ -26,26 +24,25 @@ int main(int argc,char **argv)
   G4bool use_xsec_integration = true;
   G4bool force_isotropic = false;
   G4bool addNRF = true;
-  //seed = 1;
+  G4int seed = 1;
+  G4int numCores = 3;
 
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   g4MPI->SetVerbose(0);
-  G4MPIsession* session = g4MPI->GetMPIsession();
-  G4String prompt= " [40;01;33m";
-  prompt+= "G4MPI";
-  prompt+= " [40;31m(%s) [40;36m[%/] [00;30m:";
-  session-> SetPrompt(prompt);
+  G4UImanager* UI= G4UImanager::GetUIpointer();
+  for(G4int i=0;i<=numCores;i++)
+  {
+    G4String thecommand = "/mpi/setSeed " + to_string(i) + " " + to_string(seed +i);
+    UI->ApplyCommand(thecommand);
+    std::cout << thecommand << std::endl;
+  }
 
-        // choose the Random engine
-  //CLHEP::HepRandom::setTheEngine(new CLHEP::RanluxEngine);
-  //CLHEP::HepRandom::setTheSeed(seed);
+  G4MPIsession* session = g4MPI->GetMPIsession();
 
   G4RunManager *runManager = new G4RunManager;
   runManager->SetUserInitialization(new DetectorConstruction);
   runManager->SetUserInitialization(new physicsList(addNRF, use_xsec_tables, use_xsec_integration, force_isotropic));
   runManager->SetUserInitialization(new ActionInitialization);
-
-  //runManager->Initialize();
 
   session->SessionStart();
 
