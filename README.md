@@ -75,7 +75,9 @@ Now go to geant4 application
 To Run
 ==
 
-mpiexec -n <number of cores> ./EagleEye eagle.in
+mpiexec -n <number of cores> ./EagleEye eagle.in <MasterSeed> <number of cores>
+
+The number of cores set with the flag -n for mpiexec should be the same as the number of cores inputed to EagleEye. Inputing the incorrect number of cores will not crash program but will give you an unpredictable seed for all cores where a seed is not assigned. 
   
 Required Inputs
 ==
