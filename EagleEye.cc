@@ -48,7 +48,7 @@ int main(int argc,char **argv)
  macro = argv[1];
  seed = atoi(argv[2]);
  numCores = atoi(argv[3]);
- std::cout << "Number of Cores: " << G4Threading::GetNumberOfCores() << std::endl;
+ std::cout << "Number of Cores: " << G4Threading::G4GetNumberOfCores() << std::endl;
   
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
   
