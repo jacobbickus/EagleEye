@@ -32,7 +32,7 @@ int main(int argc,char **argv)
   G4UImanager* UI= G4UImanager::GetUIpointer();
   for(G4int i=0;i<=numCores - 1;i++)
   {
-    G4String thecommand = "/mpi/setSeed " + to_string(i) + " " + to_string(seed +i);
+    G4String thecommand = "/mpi/setSeed " + std::to_string(i) + " " + std::to_string(seed +i);
     UI->ApplyCommand(thecommand);
     std::cout << thecommand << std::endl;
   }
