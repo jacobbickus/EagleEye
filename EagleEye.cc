@@ -58,6 +58,7 @@ int main(int argc,char **argv)
     UI->ApplyCommand(thecommand);
   }
 
+  UI->ApplyCommand("/mpi/showSeeds 1");
   G4MPIsession* session = g4MPI->GetMPIsession();
 
   G4RunManager *runManager = new G4RunManager;
