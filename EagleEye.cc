@@ -15,6 +15,18 @@
 #include "G4Types.hh"
 #include <stdio.h>
 #include <string>
+G4int seed;
+G4int numCores;
+G4String macro;
+
+namespace
+{
+void PrintUsage()
+{
+   std::cerr << "Usage: " << std::endl;
+   std::cerr << "EagleEye [-m macro] [-s MasterSeed] [-n numberCores]" << std::endl;
+}
+}
 
 int main(int argc,char **argv)
 {
@@ -24,10 +36,26 @@ int main(int argc,char **argv)
   G4bool use_xsec_integration = true;
   G4bool force_isotropic = false;
   G4bool addNRF = true;
-  G4int seed = 1;
-  G4int numCores = 3;
+  // Evaluate Arguments
+  if ( argc > 7 )
+  {
+          PrintUsage();
+          return 1;
+  }
 
+  for (G4int i=1; i<argc; i=i+2) {
+          if (G4String(argv[i]) == "-m") macro = argv[i+1];
+          else if (G4String(argv[i]) == "-s") seed = atoi(argv[i+1]);
+          else if (G4String(argv[i]) == "-n") numCores = atoi(argv[i+1]);
+          else
+          {
+                  PrintUsage();
+                  return 1;
+          }
+  }
+  
   G4MPImanager* g4MPI = new G4MPImanager(argc,argv);
+  
   g4MPI->SetVerbose(0);
   G4UImanager* UI= G4UImanager::GetUIpointer();
   for(G4int i=0;i<=numCores - 1;i++)
