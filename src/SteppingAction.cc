@@ -40,11 +40,28 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 
 // *********************** Checks and Cuts Complete ************************ //
 
+        G4int isNRF = 0;
         eventInformation* info = (eventInformation*)(G4RunManager::GetRunManager()->GetCurrentEvent()->GetUserInformation());
         weight = info->GetWeight();
         G4String particleName = aStep->GetTrack()->GetDynamicParticle()
                                 ->GetParticleDefinition()->GetParticleName();
         Analysis* manager = Analysis::GetAnalysis();
+        if(theTrack->GetCreatorProcess() !=0)
+        {
+                G4String CPName = theTrack->GetCreatorProcess()->GetProcessName();
+                if(CPName == "NRF")
+                {
+                        isNRF = 1;
+                }
+        }
+        
+        // Incident Water Analysis 
+        if(aStep->GetPostStepPoint()->GetPhysicalVolume()->GetName().compare(0, 5,"Water") == 0
+           && aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName().compare(0, 5, "Water") != 0 && isNRF)
+        {
+                G4double energy_inc_water = theTrack->GetKineticEnergy()/(MeV);
+                manager->FillIncWater(energy_inc_water, weight);
+        }
 
         // PMT Analysis
 
