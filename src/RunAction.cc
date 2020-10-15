@@ -53,6 +53,7 @@ void RunAction::EndOfRunAction(const G4Run*)
     fname.str(thefilename);
     Analysis* myana = Analysis::GetAnalysis();
     myana->Save(fname.str());
+    std::cout << "Merged File saved" << std::endl;
   }
   Analysis* myana = Analysis::GetAnalysis();
   myana->Close();
