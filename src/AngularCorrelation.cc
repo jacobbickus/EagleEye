@@ -46,33 +46,6 @@ bool Angular_Correlation::ReInit(float io, float i1, float i2, int l1, int l2, f
   if (I < 1.0 || I_1 < 0.0 || I_2 < 0.0 || L_1 < 1 || L_2 < 1 ||
       I > 4.5 || I_1 > 7.5 || I_2 > 7.5 || L_1 > 4 || L_2 > 4) {
      parameters_in_range = false;
-
-     if (true) {
-      cout << " Angular_Correlation::ReInit Warning!!! " <<
-                " : Check I, I_1, I_2, L_1, and L_2 for" <<
-                " Angular Correlation Evaluation " << endl;
-     if ((I < 1.0) || (I > 4.5)) {
-       cout << "Intermediate angular momentum is out-of-range." << endl;
-       cout << "I = " << I << endl;
-       cout << "Valid range is 1.0 to 4.5." << endl;
-     } else if ((I_1 < 0.0) || (I_1 > 7.5)) {
-       cout << "Initial state angular momentum is out-of-range." << endl;
-       cout << "I_1 = " << I_1 << endl;
-       cout << "Valid range is 0 to 7.5." << endl;
-     } else if ((I_2 < 0.0) || (I_2 > 7.5)) {
-       cout << "Final state angular momentum is out-of-range." << endl;
-       cout << "I_2 = " << I_2 << endl;
-       cout << "Valid range is 0 to 7.5." << endl;
-     } else if ((L_1 < 1) || (L_1 > 4)) {
-       cout << "Initial gamma angular momentum is out-of-range." << endl;
-       cout << "L_1 = " << L_1 << endl;
-       cout << "Valid range is 1 to 4." << endl;
-     } else if ((L_2 < 1) || (L_2 > 4)) {
-       cout << "Final gamma angular momentum is out-of-range." << endl;
-       cout << "L_2 = " << L_2 << endl;
-       cout << "Valid range is 1 to 4." << endl;
-     }
-    }
   }
 
 
