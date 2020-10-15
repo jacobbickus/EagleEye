@@ -68,7 +68,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
         bialkali->AddElement(elK,2);
         bialkali->AddElement(elSb,1);
 
-        G4bool checkOverlaps = true;
+        G4bool checkOverlaps = false;
 
         G4double world_size_x = 5.*m;
         G4double world_size_z = 10.*m;
