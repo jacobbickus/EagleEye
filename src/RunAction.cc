@@ -41,6 +41,7 @@ void RunAction::EndOfRunAction(const G4Run*)
     myana->Save(fname);
     myana->Close(false);
   }
+  std::cout << "Merging " << rank << std::endl;
   G4MPIhistoMerger hm(G4AnalysisManager::Instance());
   hm.SetVerbosity(0);
   hm.Merge();
@@ -55,5 +56,6 @@ void RunAction::EndOfRunAction(const G4Run*)
   }
   Analysis* myana = Analysis::GetAnalysis();
   myana->Close();
+  std::cout << "Run Complete " << rank << std::endl;
 
 }
