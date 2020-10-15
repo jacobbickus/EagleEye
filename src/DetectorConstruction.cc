@@ -515,7 +515,7 @@ physWater = new G4PVPlacement(0,         //no rotation
         waterMPT->AddProperty("RAYLEIGH",energy_ray_water,rayleigh_water,numentries_water_ray)->SetSpline(true);
         Water->SetMaterialPropertiesTable(waterMPT);
 // Set the Birks Constant for the Water scintillator
-        Water->GetIonisation()->SetBirksConstant(0.126*mm/MeV);
+        //Water->GetIonisation()->SetBirksConstant(0.126*mm/MeV);
 
 // APPLY OPTICAL QUALITIES
 
