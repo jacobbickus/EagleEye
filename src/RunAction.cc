@@ -27,7 +27,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
   Analysis* myana = Analysis::GetAnalysis();
   myana->Clear();
   myana->Book();
-  std::cout << "Beginning Run..." << std::endl;
+  //std::cout << "Beginning Run..." << std::endl;
 }
 
 void RunAction::EndOfRunAction(const G4Run*)
