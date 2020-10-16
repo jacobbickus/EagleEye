@@ -8,9 +8,9 @@
 #include "g4root.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
-#include "RunMessenger.hh"
+#include "RunMasterMessenger.hh"
 
-class RunMessenger;
+class RunMasterMessenger;
 
 class RunActionMaster : public G4UserRunAction
 {
@@ -27,7 +27,7 @@ class RunActionMaster : public G4UserRunAction
     }
   private:
     G4String thefilename; 
-    RunMessenger* runM;
+    RunMasterMessenger* runM;
 };
 
 
