@@ -18,7 +18,7 @@ public:
   void SetFilename(G4String val)
     {
       thefilename = val;
-      std::cout << "Filename set to: " << thefilename << std::endl;
+      //std::cout << "Filename set to: " << thefilename << std::endl;
     }
 
 private:
