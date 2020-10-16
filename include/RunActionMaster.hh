@@ -1,5 +1,5 @@
-#ifndef RunAction_h
-#define RunAction_h 1
+#ifndef RunActionMaster_h
+#define RunActionMaster_h 1
 
 #include "G4UserRunAction.hh"
 #include "G4MPImanager.hh"
