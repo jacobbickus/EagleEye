@@ -1,28 +1,28 @@
 
 #include "G4MPImanager.hh"
 #include "Analysis.hh"
-#include "RunAction.hh"
+#include "RunActionMaster.hh"
 #include "g4root.hh"
 #include "G4MPIhistoMerger.hh"
 #include "MyRun.hh"
 
-RunAction::RunAction()
+RunActionMaster::RunActionMaster()
         : G4UserRunAction(), thefilename("test"), runM(NULL)
 {
   runM = new RunMessenger(this);
 }
 
-RunAction::~RunAction()
+RunActionMaster::~RunActionMaster()
 {
   delete runM;
 }
 
-G4Run* RunAction::GenerateRun()
+G4Run* RunActionMaster::GenerateRun()
 {
   return new MyRun;
 }
 
-void RunAction::BeginOfRunAction(const G4Run*)
+void RunActionMaster::BeginOfRunAction(const G4Run*)
 {
   Analysis* myana = Analysis::GetAnalysis();
   myana->Clear();
@@ -30,7 +30,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
   //std::cout << "Beginning Run..." << std::endl;
 }
 
-void RunAction::EndOfRunAction(const G4Run*)
+void RunActionMaster::EndOfRunAction(const G4Run*)
 {
   const G4int rank = G4MPImanager::GetManager()->GetRank();
   if(rank == 0)
