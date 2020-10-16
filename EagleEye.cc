@@ -1,5 +1,10 @@
 // Always include
+#ifdef G4MULTITHREADED
+#include "G4MTRunManager.hh"
+#else
 #include "G4RunManager.hh"
+#endif
+
 
 #include "G4MPImanager.hh"
 #include "G4MPIsession.hh"
@@ -15,6 +20,7 @@
 #include "G4Types.hh"
 #include <stdio.h>
 #include <string>
+#include "G4Threading.hh"
 
 G4int seed;
 G4int numCores;
@@ -61,7 +67,13 @@ int main(int argc,char **argv)
   //UI->ApplyCommand("/mpi/showSeeds 1");
   G4MPIsession* session = g4MPI->GetMPIsession();
 
-  G4RunManager *runManager = new G4RunManager;
+#ifdef G4MULTITHREADED
+  G4MTRunManager* runManager = new G4MTRunManager();
+  runManager-> SetNumberOfThreads(G4Threading::G4GetNumberofCores());
+#else
+  G4RunManager* runManager = new G4RunManager();
+#endif
+
   runManager->SetUserInitialization(new DetectorConstruction);
   runManager->SetUserInitialization(new physicsList(addNRF, use_xsec_tables, use_xsec_integration, force_isotropic));
   runManager->SetUserInitialization(new ActionInitialization);
