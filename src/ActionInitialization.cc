@@ -1,4 +1,7 @@
 #include "ActionInitialization.hh"
+#include "G4Threading.hh"
+#include "RunAction.hh"
+#include "RunActionMaster.hh"
 
 
 ActionInitialization::ActionInitialization()
@@ -14,7 +17,7 @@ ActionInitialization::~ActionInitialization()
 
 void ActionInitialization::BuildForMaster() const
 {
-  SetUserAction(new RunAction);
+  SetUserAction(new RunActionMaster);
 }
 
 void ActionInitialization::Build() const
@@ -24,5 +27,12 @@ void ActionInitialization::Build() const
   SetUserAction(new EventAction);
   SetUserAction(new SteppingAction);
   SetUserAction(new StackingAction);
-  SetUserAction(new RunAction);
+  if(G4Threading::G4MultiThreadedApplication())
+  {
+    SetUserAction(new RunAction);
+  }
+  else
+  {
+    SetUserAction(new RunActionMaster);
+  }
 }
