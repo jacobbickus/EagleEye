@@ -24,14 +24,16 @@ G4Run* RunActionMaster::GenerateRun()
 
 void RunActionMaster::BeginOfRunAction(const G4Run*)
 {
+  std::cout << "RunActionMaster::BeginOfRunAction" << std::endl;
   Analysis* myana = Analysis::GetAnalysis();
   myana->Clear();
   myana->Book();
-  //std::cout << "Beginning Run..." << std::endl;
+  std::cout << "Beginning Run..." << std::endl;
 }
 
 void RunActionMaster::EndOfRunAction(const G4Run*)
 {
+  std::cout << "RunActionMaster::EndOfRunAction" << std::endl;
   const G4int rank = G4MPImanager::GetManager()->GetRank();
   if(rank == 0)
   {
