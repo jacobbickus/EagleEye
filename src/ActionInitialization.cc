@@ -27,7 +27,7 @@ void ActionInitialization::Build() const
   SetUserAction(new EventAction);
   SetUserAction(new SteppingAction);
   SetUserAction(new StackingAction);
-  if(G4Threading::G4MultiThreadedApplication())
+  if(G4Threading::IsG4MultithreadedApplication())
   {
     SetUserAction(new RunAction);
   }
