@@ -7,13 +7,15 @@
 #include "MyRun.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-RunAction::RunAction()
+RunAction::RunAction() : runM(NULL), thefilename("test")
 {
+  runM = new RunMessenger(this);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 RunAction::~RunAction()
 {
+  delete runM;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
