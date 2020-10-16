@@ -70,8 +70,8 @@ int main(int argc,char **argv)
 #ifdef G4MULTITHREADED
   G4MTRunManager* runManager = new G4MTRunManager();
    G4int numThreads = G4Threading::G4GetNumberOfCores();
-   std::cout << "Number of Threads " << numThreads << std::endl;
-  runManager-> SetNumberOfThreads(numThreads);
+   std::cout << "Number of Threads " << numCores << std::endl;
+  runManager-> SetNumberOfThreads(numCores);
    std::cout << "USING MULTITHREADED APPLICATION!" << std::endl;
 #else
   G4RunManager* runManager = new G4RunManager();
