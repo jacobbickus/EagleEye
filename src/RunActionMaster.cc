@@ -9,7 +9,7 @@
 RunActionMaster::RunActionMaster()
         : G4UserRunAction(), thefilename("test"), runM(NULL)
 {
-  runM = new RunMessenger(this);
+  runM = new RunMasterMessenger(this);
 }
 
 RunActionMaster::~RunActionMaster()
