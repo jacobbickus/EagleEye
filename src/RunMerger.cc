@@ -1,5 +1,5 @@
 #include "RunMerger.hh"
-#include "Run.hh"
+#include "MyRun.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void RunMerger::Pack() {
@@ -11,7 +11,7 @@ void RunMerger::Pack() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 G4Run* RunMerger::UnPack() {
   //Create a dummy user-Run, used to contain data received via MPI
-  Run* aDummyRun = new Run;
+  MyRun* aDummyRun = new MyRun;
   OutputUserData(&(aDummyRun->fDummyCounter),MPI::INT,1);
   return aDummyRun;
 }
