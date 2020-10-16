@@ -12,11 +12,11 @@
 
 class RunMessenger;
 
-class RunAction : public G4UserRunAction
+class RunActionMaster : public G4UserRunAction
 {
   public:
-    RunAction();
-    virtual ~RunAction();
+    RunActionMaster();
+    virtual ~RunActionMaster();
     virtual G4Run* GenerateRun();
     virtual void BeginOfRunAction(const G4Run*);
     virtual void EndOfRunAction(const G4Run*);
