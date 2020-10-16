@@ -26,6 +26,7 @@ G4Run* RunAction::GenerateRun()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void RunAction::BeginOfRunAction(const G4Run*)
 {
+  std::cout << "RunAction::BeginOfRunAction" << std::endl;
   Analysis* myana = Analysis::GetAnalysis();
   myana-> Clear();
   myana->Book();
@@ -34,6 +35,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void RunAction::EndOfRunAction(const G4Run*)
 {
+  std::cout << "RunAction::EndOfRunAction" << std::endl;
    G4int rank = G4MPImanager::GetManager()-> GetRank();
   //NOTE: if only histograms are active actually we do not create the per-thread
   //ntuple file
