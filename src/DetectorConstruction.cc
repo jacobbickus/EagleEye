@@ -305,47 +305,6 @@ physWater = new G4PVPlacement(0,         //no rotation
                                    0,
                                    checkOverlaps);
 
-// Visualization Attributes
-        G4VisAttributes *yellow= new G4VisAttributes( G4Colour(255/255.,255/255.,51/255. ));
-        G4VisAttributes *red= new G4VisAttributes( G4Colour(255/255., 0/255., 0/255. ));
-        G4VisAttributes *blue= new G4VisAttributes( G4Colour(0/255., 0/255.,  255/255. ));
-        G4VisAttributes *grayc= new G4VisAttributes( G4Colour(128/255., 128/255.,  128/255. ));
-        G4VisAttributes *lightGray= new G4VisAttributes( G4Colour(178/255., 178/255.,  178/255. ));
-        G4VisAttributes *green= new G4VisAttributes( G4Colour(0/255., 255/255.,  0/255. ));
-        G4VisAttributes *black = new G4VisAttributes(G4Colour(0.,0.,0.));
-        G4VisAttributes *magenta = new G4VisAttributes(G4Colour(1.0, 0.0, 1.0));
-        G4VisAttributes *white = new G4VisAttributes(G4Colour(1.0,1.0,1.0));
-
-        yellow->SetVisibility(true);
-        yellow->SetForceWireframe(true);
-        red->SetVisibility(true);
-        red->SetForceSolid(true);
-        blue->SetVisibility(true);
-        blue->SetForceWireframe(true);
-        green->SetVisibility(true);
-        green->SetForceSolid(true);
-        grayc->SetVisibility(false);
-        lightGray->SetVisibility(true);
-        lightGray->SetForceSolid(true);
-        black->SetForceSolid(true);
-        black->SetVisibility(true);
-        magenta->SetForceWireframe(true);
-        magenta->SetVisibility(true);
-        white->SetForceWireframe(true);
-        white->SetVisibility(true);
-
-// Set Visual colors
-        logicTape->SetVisAttributes(yellow);
-        logicCasing->SetVisAttributes(magenta);
-        logicWater->SetVisAttributes(blue);
-        logicPMT->SetVisAttributes(green);
-        logicPC->SetVisAttributes(red);
-        logicIntObj->SetVisAttributes(lightGray);
-        logicContainer->SetVisAttributes(yellow);
-        logicHollowC->SetVisAttributes(grayc);
-        logicCollimator->SetVisAttributes(magenta);
-        logicChopper->SetVisAttributes(black);
-
 
 //
 // ------------ Generate & Add Material Properties Table ------------
