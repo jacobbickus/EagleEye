@@ -22,7 +22,6 @@
 
 #include "G4OpticalSurface.hh"
 #include "G4MaterialTable.hh"
-#include "G4VisAttributes.hh"
 #include "G4OpRayleigh.hh"
 
 #include "G4Box.hh" //for box
@@ -32,8 +31,6 @@
 #include "G4Tubs.hh" // for tube/cylinder
 
 // for color attributes
-#include "G4Colour.hh"
-#include "G4VisAttributes.hh"
 #include "DetectorMessenger.hh"
 #include "G4NistManager.hh"
 #include "G4RotationMatrix.hh"
