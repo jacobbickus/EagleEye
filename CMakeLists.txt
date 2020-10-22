@@ -71,6 +71,7 @@ target_link_libraries(EagleEye ${Geant4_LIBRARIES} ${G4mpi_LIBRARIES} ${ROOT_LIB
 set(EagleEye_SCRIPTS
     eagle.in
     brems_distributions.root
+    PostAnalysis.cc
   )
 
 foreach(_script ${EagleEye_SCRIPTS})
