@@ -67,6 +67,7 @@ void Sampling(const char *bremInputFilename)
 
     // also create a normalized brems spectrum for weighting
     TFile *f = TFile::Open(bremInputFilename);
+    std::cout << "Root input File: " <<bremInputFilename << " being read..." << std::endl;
     TTree *ChopperData;
     f->GetObject("ChopperData", ChopperData);
     ChopperData->Print();
