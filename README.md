@@ -76,7 +76,7 @@ Preparing the Run
 ==
 The input bremstrahulung spectrum for the run can be prepared through the Sampling.cc located in the source directory.
 Sampling.cc can be run using CERN ROOT with the command:
-'> root -b -q 'Sampling("rootInput.root", BremSpectrumEnergyMax)''
+`> root -b -q 'Sampling("rootInput.root", BremSpectrumEnergyMax)'`
 The Sampling.cc file takes a root file with a bremstrahulung distribution and the distribution's maximum energy and outputs a file named brem_distributions.root and brems_distributions.png consisting of the bremstrahulung input distributions and an importance sampling distribution for NRF for the bremstrahulung distribution. 
 
 
@@ -103,7 +103,7 @@ Analysis
 ==
 
 The PostAnalysis.cc file analyzes Chopper On/Off root files for a given experimental simulation. The PostAnalysis.cc file can be run in CERN ROOT with the command:
-'> root -b -q 'PostAnalysis("ChopperOn.root","ChopperOff.root")''
+`> root -b -q 'PostAnalysis("ChopperOn.root","ChopperOff.root")'`
 
 The File outputs the On/Off States respective: Detected Entries, Detected Weighted Sum, NRF Incident Water Weighted Sum. It also outputs the percent difference between the Chopper On/Off detected weighted sums. 
 
