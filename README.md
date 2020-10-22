@@ -72,6 +72,14 @@ Now go to geant4 application
 `> mkdir <application_build> && cd <application_build>`
 `> cmake -DG4mpi_DIR=/path/to/geant4MPI_build /path/to/application/source && make -j[N]`
 
+Preparing the Run
+==
+The input bremstrahulung spectrum for the run can be prepared through the Sampling.cc located in the source directory.
+Sampling.cc can be run using CERN ROOT with the command:
+'> root -b -q 'Sampling("rootInput.root", BremSpectrumEnergyMax)''
+The Sampling.cc file takes a root file with a bremstrahulung distribution and the distribution's maximum energy and outputs a file named brem_distributions.root and brems_distributions.png consisting of the bremstrahulung input distributions and an importance sampling distribution for NRF for the bremstrahulung distribution. 
+
+
 To Run
 ==
 
@@ -90,4 +98,14 @@ Output
 ==
 
 The Code will generate two files. The file with the final-merged histograms is found in filename-merged.root. where filename is set in eagle.in. EagleEye does not permit visualizations. In order to visualize Changes made via eagle.in simply apply the same changes in mantis.in and run ./mantis -m vis_save.mac to create a .wrl file or in interactive mode ./mantis to use OPENGL. 
+
+Analysis
+==
+
+The PostAnalysis.cc file analyzes Chopper On/Off root files for a given experimental simulation. The PostAnalysis.cc file can be run in CERN ROOT with the command:
+'> root -b -q 'PostAnalysis("ChopperOn.root","ChopperOff.root")''
+
+The File outputs the On/Off States respective: Detected Entries, Detected Weighted Sum, NRF Incident Water Weighted Sum. It also outputs the percent difference between the Chopper On/Off detected weighted sums. 
+
+
 
