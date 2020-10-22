@@ -1,4 +1,5 @@
-void Sampling()
+// to Run in root: root -b -q 'Sampling("brem.root")'
+void Sampling(const char *bremInputFilename)
 {
 	const double pi = TMath::Pi();
 	double Emin = 0.0; // spectrum min energy in MeV
@@ -64,8 +65,8 @@ void Sampling()
 	hSample->Scale(1.0/(hSample->Integral()));
 
 
-	// also create a normalized brems spectrum for weighting
-	TFile *f = TFile::Open("brem.root");
+    // also create a normalized brems spectrum for weighting
+    TFile *f = TFile::Open(bremInputFilename);
     TTree *ChopperData;
     f->GetObject("ChopperData", ChopperData);
     ChopperData->Print();
