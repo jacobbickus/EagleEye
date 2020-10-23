@@ -215,6 +215,7 @@ physWater = new G4PVPlacement(0,         //no rotation
         }
         G4Tubs *solidChopper = new G4Tubs("Chopper", 0*cm, 10*cm, chopper_thick, 0.*deg, 180.*deg);
         G4Material *chopperMat = new G4Material("chopperMaterial", chopperDensity, 1);
+        std::cout << "Chopper Wheel set to " << chopperOn << std::endl;
         if(chopperOn)
         {
           if(chopperDensity == 19.1*g/cm3)
