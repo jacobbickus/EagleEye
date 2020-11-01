@@ -77,7 +77,7 @@ Preparing the Run
 The input bremstrahulung spectrum for the run can be prepared through the Sampling.cc located in the source directory.
 Sampling.cc can be run using CERN ROOT with the command:
 
-`> root -b -q 'Sampling("rootInput.root", BremSpectrumEnergyMax)'`
+`> root -b -q 'Sampling.cc("rootInput.root", BremSpectrumEnergyMax)'`
 
 The Sampling.cc file takes a root file with a bremstrahulung distribution and the distribution's maximum energy and outputs a file named brem_distributions.root and brems_distributions.png consisting of the bremstrahulung input distributions and an importance sampling distribution for NRF for the bremstrahulung distribution. 
 
